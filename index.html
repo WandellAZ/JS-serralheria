@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Serralheria - Josevando Ramos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <header class="header-section">
+            <div class="logo">
+                <img src="/images/logo.png" alt="JS Serralheria Metalúrgica" class="logo-img">
+            </div>
+            
+            <div class="profile-name">
+                <div class="profile-badge"><span>JOSEVANDO RAMOS</span></div>
+                <span class="profile-sub">METALÚRGICA</span>
+            </div>
+        </header>
+
+        <section class="services-card">
+            <h2>NOSSOS SERVIÇOS <i class="fas fa-hammer icon-hammer"></i></h2>
+            
+            <ul class="service-list">
+                <li>Estrutura Metálica</li>
+                <li>Serviços de Serralheria</li>
+                <li>Reparos e Manutenção</li>
+                <li>Portões e Portas</li>
+            </ul>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=300&q=80" alt="Grades">
+                    <div class="item-label">GRADES E PORTÕES</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=300&q=80" alt="Armários">
+                    <div class="item-label">ARMÁRIOS METÁLICOS</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=300&q=80" alt="Solda">
+                    <div class="item-label">ESTRUTURAS</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&w=300&q=80" alt="Manutenção">
+                    <div class="item-label">MANUTENÇÃO</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-card">
+            <h3>Entre em Contato</h3>
+
+            <a href="https://wa.me/556992595342" class="contact-btn highlight" target="_blank">
+                <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                <div class="btn-text">
+                    <small>Whatsapp</small>
+                    <span>(69) 9259-5342</span>
+                </div>
+            </a>
+
+            <a href="tel:+556992595342" class="contact-btn">
+                <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                <div class="btn-text">
+                    <small>Ligar Agora</small>
+                    <span>(69) 9259-5342</span>
+                </div>
+            </a>
+
+            <a href="mailto:josevandoramos2018@gmail.com" class="contact-btn">
+                <div class="icon-box"><i class="far fa-envelope"></i></div>
+                <div class="btn-text">
+                    <small>E-mail</small>
+                    <span>josevandoramos2018@gmail.com</span>
+                </div>
+            </a>
+
+            <a href="https://maps.google.com/?q=Rua+Libra,11911" target="_blank" class="contact-btn">
+                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="btn-text">
+                    <small>Endereço</small>
+                    <span>Rua Libra, 11911</span>
+                </div>
+            </a>
+
+            <button class="share-btn" onclick="shareCard()">
+                Compartilhar Cartão
+            </button>
+        </section>
+
+        <footer class="footer">
+            <p>JS SERRALHERIA METALÚRGICA</p>
+            <p>© 2025 Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+:root {
+    --primary-orange: #ff7315;
+    --dark-bg: #11151c;
+    --card-bg: #1c2331;
+    --text-white: #ffffff;
+    --text-gray: #b0b0b0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* --- Header / Topo --- */
+.header-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #ccc;
+    line-height: 1;
+}
+.logo-sub { 
+    color: var(--primary-orange); 
+    display: block; 
+    font-size: 1rem; 
+    letter-spacing: 2px;
+}
+
+.profile-name {
+    text-align: right;
+}
+.profile-badge {
+    background: var(--primary-orange);
+    color: white;
+    padding: 5px 15px;
+    font-weight: 800;
+    transform: skew(-10deg);
+    display: inline-block;
+}
+.profile-badge span { transform: skew(10deg); display: block; text-transform: uppercase; }
+.profile-sub {
+    display: block;
+    margin-top: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--primary-orange);
+}
+
+/* --- Coluna Esquerda: Serviços (Laranja) --- */
+.services-card {
+    background: var(--primary-orange);
+    padding: 30px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 350px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.services-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-style: italic;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon-hammer { font-size: 1rem; }
+
+.service-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+.service-list li {
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.service-list li::before {
+    content: "•";
+    margin-right: 10px;
+    color: black;
+}
+
+/* Grid de Imagens */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.gallery-item:hover img { opacity: 1; }
+
+.item-label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-left: 3px solid var(--primary-orange);
+    padding-left: 5px;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 5px;
+}
+
+/* --- Coluna Direita: Contato (Dark) --- */
+.contact-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 350px;
+    border: 1px solid #2c3547;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.contact-card h3 {
+    color: var(--primary-orange);
+    margin-bottom: 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.contact-card h3::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: var(--primary-orange);
+    margin-right: 10px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #3a455b;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #252e40;
+    border-color: var(--primary-orange);
+    transform: translateX(5px);
+}
+
+.contact-btn.highlight {
+    background: linear-gradient(90deg, #ff8c42, #ff7315);
+    border: none;
+    font-weight: 800;
+}
+.contact-btn.highlight:hover {
+    filter: brightness(1.1);
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    padding-right: 15px;
+}
+
+.btn-text small {
+    display: block;
+    color: var(--text-gray);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+.btn-text span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.contact-btn.highlight .btn-text small { color: rgba(255,255,255,0.8); }
+
+/* Botão Compartilhar */
+.share-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed #3a455b;
+    color: var(--text-gray);
+    padding: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.share-btn:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+/* Footer - Atualizado */
+.footer {
+    width: 100%;
+    text-align: center;
+    
+    /* Espaçamento para separar dos cartões de cima */
+    margin-top: 50px; 
+    
+    /* Espaço interno entre a linha e o texto */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    font-size: 0.7rem;
+    color: #ffffff;
+    
+    /* AQUI ESTÁ A LINHA QUE VOCÊ PEDIU */
+    /* É uma linha cinza-azulada sutil para combinar com o tema */
+    border-top: 1px solid #2c3547; 
+    
+}
+/* Logo menor no celular, mas mantendo a proporção */
+.logo-img { 
+    height: auto; 
+    width: 100%;
+    max-width: 250px; /* Limita a largura no celular */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-section { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .profile-name { text-align: left; }
+    .gallery-grid { grid-template-columns: 1fr; }
+}
