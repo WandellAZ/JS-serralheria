@@ -3,7 +3,7 @@ function shareCard() {
     const shareData = {
         title: 'JS Serralheria',
         text: 'Entre em contato com Josevando Ramos - Metalúrgica e Serralheria.',
-        url: window.location.href // Pega o link atual do site
+        url: 'https://js-serralheria.netlify.app'
     };
 
     // Verifica se o navegador suporta a API de compartilhamento nativo (Celular)
@@ -13,7 +13,7 @@ function shareCard() {
             .catch((error) => console.log('Erro ao compartilhar', error));
     } else {
         // Fallback para computadores: Copia o link
-        navigator.clipboard.writeText(window.location.href);
+        navigator.clipboard.writeText('https://js-serralheria.netlify.app');
         alert("Link copiado para a área de transferência!");
     }
 }
