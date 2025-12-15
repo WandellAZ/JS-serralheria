@@ -282,5 +282,6 @@ body {
     max-width: 1000px; /* Limita a largura no celular */
 }
 .contact-btn {
-    font-size: 0.3;
+    min-width: 0;
+
 }
