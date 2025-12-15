@@ -18,9 +18,9 @@ body {
     color: var(--text-white);
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    align-items: flex-start;
+    min-height: 0vh;
+    padding: 0px;
 }
 
 /* Container Principal */
@@ -29,7 +29,7 @@ body {
     flex-wrap: wrap;
     max-width: 1200px;
     width: 100%;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     align-items: flex-start;
 }
@@ -40,12 +40,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     flex-wrap: wrap;
 }
 
 .logo h1 {
-    font-weight: 800;
+    font-weight: 100;
     font-size: 2rem;
     color: #ccc;
     line-height: 1;
@@ -54,7 +54,7 @@ body {
     color: var(--primary-orange); 
     display: block; 
     font-size: 1rem; 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .profile-name {
