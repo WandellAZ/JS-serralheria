@@ -278,7 +278,7 @@ body {
 /* Logo menor no celular, mas mantendo a proporção */
 .logo-img { 
     height: auto; 
-    width: 100%;
+    width: 50%;
     max-width: 1000px; /* Limita a largura no celular */
 }
 .contact-btn {
