@@ -278,13 +278,6 @@ body {
 /* Logo menor no celular, mas mantendo a proporção */
 .logo-img { 
     height: auto; 
-    width: 100%;
-    max-width: 250px; /* Limita a largura no celular */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .header-section { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .profile-name { text-align: left; }
-    .gallery-grid { grid-template-columns: 1fr; }
+    width: 75%;
+    max-width: 200px; /* Limita a largura no celular */
 }
