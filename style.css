@@ -279,8 +279,8 @@ body {
 .logo-img { 
     height: auto; 
     width: 100%;
-    max-width: 200px; /* Limita a largura no celular */
+    max-width: 1000px; /* Limita a largura no celular */
 }
 .contact-btn {
-    
+    font-size: 0.3;
 }
