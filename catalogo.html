@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - JS Serralheria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container catalog-page-container">
+        
+        <header class="header-section">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="JS Serralheria Metalúrgica" class="logo-img">
+            </a>
+            
+            <div class="profile-name">
+                <div class="profile-badge"><span>JOSEVANDO RAMOS</span></div>
+                <span class="profile-sub">METALÚRGICA</span>
+            </div>
+        </header>
+
+        <!-- Hero / Cabeçalho do Catálogo -->
+        <section class="catalog-hero">
+            <div class="catalog-header-top">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Início
+                </a>
+                <div class="hero-badges">
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 64 Projetos Reais</span>
+                    <span class="stat-pill"><i class="fas fa-medal"></i> Qualidade Garantida</span>
+                </div>
+                <a href="https://wa.me/556992595342?text=Ol%C3%A1%2C%20vi%20o%20cat%C3%A1logo%20da%20JS%20Serralheria%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" class="whatsapp-top-btn">
+                    <i class="fab fa-whatsapp"></i> Orçamento Rápido
+                </a>
+            </div>
+
+            <div class="catalog-title-box">
+                <span class="catalog-eyebrow"><i class="fas fa-hammer"></i> PORTFÓLIO DE SERVIÇOS</span>
+                <h1>NOSSO CATÁLOGO DE TRABALHOS</h1>
+                <p>Explore fotos reais de estruturas metálicas, portões, grades, escadas e serviços sob medida. <strong>Favorite (<i class="fas fa-heart"></i>)</strong> os modelos que mais gostar ou clique em qualquer foto para dar zoom.</p>
+            </div>
+
+            <!-- Barra Interativa de Filtros, Busca e Visualização -->
+            <div class="catalog-toolbar">
+                <div class="toolbar-filter-group">
+                    <button class="filter-chip active" data-filter="all" id="filterAllBtn">
+                        <i class="fas fa-th-large"></i> Todos <span class="chip-count">64</span>
+                    </button>
+                    <button class="filter-chip" data-filter="favorites" id="filterFavBtn">
+                        <i class="fas fa-heart"></i> Meus Favoritos <span class="chip-count" id="favCountBadge">0</span>
+                    </button>
+                </div>
+
+                <div class="toolbar-right-group">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="catalogSearch" placeholder="Buscar nº da foto (ex: 12)...">
+                    </div>
+
+                    <div class="view-switcher" title="Alterar tamanho da grade">
+                        <button class="view-btn" data-view="large" aria-label="Grade grande" title="Fotos Grandes">
+                            <i class="fas fa-square"></i>
+                        </button>
+                        <button class="view-btn active" data-view="normal" aria-label="Grade padrão" title="Grade Padrão">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="compact" aria-label="Grade compacta" title="Grade Compacta">
+                            <i class="fas fa-th"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mensagem quando filtro não encontra fotos -->
+        <div id="emptyCatalogMsg" class="empty-catalog-msg" style="display: none;">
+            <i class="far fa-heart"></i>
+            <h3 id="emptyTitle">Nenhuma foto encontrada</h3>
+            <p id="emptyDesc">Clique no ícone de coração nas fotos para salvar seus modelos preferidos ou limpe a busca.</p>
+            <button type="button" class="reset-filter-btn" id="resetFilterBtn">Mostrar Todas as Fotos</button>
+        </div>
+
+        <!-- Galeria de Fotos -->
+        <section class="catalog-gallery-section">
+            <div class="catalog-grid" id="catalogGrid">
+                <div class="catalog-item"><img src="images/Catalago/foto-01.jpeg" alt="Serviço JS Serralheria 1" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-02.jpeg" alt="Serviço JS Serralheria 2" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-03.jpeg" alt="Serviço JS Serralheria 3" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-04.jpeg" alt="Serviço JS Serralheria 4" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-05.jpeg" alt="Serviço JS Serralheria 5" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-06.jpeg" alt="Serviço JS Serralheria 6" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-07.jpeg" alt="Serviço JS Serralheria 7" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-08.jpeg" alt="Serviço JS Serralheria 8" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-09.jpeg" alt="Serviço JS Serralheria 9" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-10.jpeg" alt="Serviço JS Serralheria 10" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-11.jpeg" alt="Serviço JS Serralheria 11" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-12.jpeg" alt="Serviço JS Serralheria 12" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-13.jpeg" alt="Serviço JS Serralheria 13" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-14.jpeg" alt="Serviço JS Serralheria 14" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-15.jpeg" alt="Serviço JS Serralheria 15" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-16.jpeg" alt="Serviço JS Serralheria 16" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-17.jpeg" alt="Serviço JS Serralheria 17" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-18.jpeg" alt="Serviço JS Serralheria 18" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-19.jpeg" alt="Serviço JS Serralheria 19" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-20.jpeg" alt="Serviço JS Serralheria 20" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-21.jpeg" alt="Serviço JS Serralheria 21" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-22.jpeg" alt="Serviço JS Serralheria 22" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-23.jpeg" alt="Serviço JS Serralheria 23" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-24.jpeg" alt="Serviço JS Serralheria 24" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-25.jpeg" alt="Serviço JS Serralheria 25" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-26.jpeg" alt="Serviço JS Serralheria 26" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-27.jpeg" alt="Serviço JS Serralheria 27" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-28.jpeg" alt="Serviço JS Serralheria 28" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-29.jpeg" alt="Serviço JS Serralheria 29" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-30.jpeg" alt="Serviço JS Serralheria 30" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-31.jpeg" alt="Serviço JS Serralheria 31" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-32.jpeg" alt="Serviço JS Serralheria 32" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-33.jpeg" alt="Serviço JS Serralheria 33" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-34.jpeg" alt="Serviço JS Serralheria 34" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-35.jpeg" alt="Serviço JS Serralheria 35" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-36.jpeg" alt="Serviço JS Serralheria 36" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-37.jpeg" alt="Serviço JS Serralheria 37" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-38.jpeg" alt="Serviço JS Serralheria 38" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-39.jpeg" alt="Serviço JS Serralheria 39" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-40.jpeg" alt="Serviço JS Serralheria 40" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-41.jpeg" alt="Serviço JS Serralheria 41" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-42.jpeg" alt="Serviço JS Serralheria 42" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-43.jpeg" alt="Serviço JS Serralheria 43" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-44.jpeg" alt="Serviço JS Serralheria 44" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-45.jpeg" alt="Serviço JS Serralheria 45" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-46.jpeg" alt="Serviço JS Serralheria 46" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-47.jpeg" alt="Serviço JS Serralheria 47" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-48.jpeg" alt="Serviço JS Serralheria 48" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-49.jpeg" alt="Serviço JS Serralheria 49" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-50.jpeg" alt="Serviço JS Serralheria 50" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-51.jpeg" alt="Serviço JS Serralheria 51" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-52.jpeg" alt="Serviço JS Serralheria 52" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-53.jpeg" alt="Serviço JS Serralheria 53" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-54.jpeg" alt="Serviço JS Serralheria 54" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-55.jpeg" alt="Serviço JS Serralheria 55" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-56.jpeg" alt="Serviço JS Serralheria 56" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-57.jpeg" alt="Serviço JS Serralheria 57" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-58.jpeg" alt="Serviço JS Serralheria 58" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-59.jpeg" alt="Serviço JS Serralheria 59" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-60.jpeg" alt="Serviço JS Serralheria 60" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-61.jpeg" alt="Serviço JS Serralheria 61" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-62.jpeg" alt="Serviço JS Serralheria 62" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-63.jpeg" alt="Serviço JS Serralheria 63" loading="lazy"></div>
+                <div class="catalog-item"><img src="images/Catalago/foto-64.jpeg" alt="Serviço JS Serralheria 64" loading="lazy"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>JS SERRALHERIA METALÚRGICA</p>
+            <p>© 2025 Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <!-- Barra Flutuante de Orçamento Múltiplo (Favoritos) -->
+    <div id="floatingFavBar" class="floating-fav-bar">
+        <div class="fav-bar-info">
+            <i class="fas fa-heart"></i>
+            <span id="favBarText">0 modelos selecionados</span>
+        </div>
+        <div class="fav-bar-actions">
+            <button type="button" id="clearFavsBtn" class="fav-clear-btn">Limpar</button>
+            <a id="favWhatsappBtn" href="#" target="_blank" class="fav-wa-btn">
+                <i class="fab fa-whatsapp"></i> Orçar Selecionados
+            </a>
+        </div>
+    </div>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Notificação Flutuante (Toast) -->
+    <div id="toastNotification" class="toast-notification"></div>
+
+    <!-- Modal / Lightbox Interativo com Zoom e Miniaturas -->
+    <div id="lightboxModal" class="lightbox-modal" aria-hidden="true">
+        <div class="lightbox-top-bar">
+            <span id="lightboxCounter" class="lightbox-counter">Projeto #01 de 64</span>
+            <div class="lightbox-top-controls">
+                <button type="button" class="lightbox-icon-btn" id="lightboxZoomBtn" title="Dar Zoom na foto">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button type="button" class="lightbox-icon-btn" id="lightboxFavBtn" title="Favoritar modelo">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+            </div>
+        </div>
+
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="lightbox-content">
+            <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
+                <img id="lightboxImg" src="" alt="Imagem ampliada do catálogo">
+            </div>
+
+            <div class="lightbox-footer">
+                <div class="lightbox-actions">
+                    <button id="lightboxCopyBtn" type="button" class="lightbox-copy-btn">
+                        <i class="far fa-copy"></i> Copiar Imagem
+                    </button>
+                    <button id="lightboxShareFile" type="button" class="lightbox-share-btn" style="display: none;">
+                        <i class="fas fa-share-alt"></i> Enviar Foto (App)
+                    </button>
+                    <a id="lightboxWhatsapp" href="https://wa.me/556992595342" target="_blank" class="lightbox-wa-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir Orçamento deste Modelo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tira de Miniaturas Interativa -->
+            <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+        </div>
+
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Próxima foto">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
