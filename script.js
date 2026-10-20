@@ -15,12 +15,13 @@ function shareCard() {
     }
 }
 
-// --- Galeria Interativa / Catálogo ---
+// --- Galeria Interativa / Catálogo com Carregamento 100% Automático ---
 document.addEventListener('DOMContentLoaded', () => {
     const catalogGrid = document.getElementById('catalogGrid');
-    const catalogItems = document.querySelectorAll('.catalog-item img');
     const modal = document.getElementById('lightboxModal');
-    if (!modal || catalogItems.length === 0) return;
+    if (!catalogGrid || !modal) return;
+
+    const FOLDER_PATH = 'images/Catalago/';
 
     const modalImg = document.getElementById('lightboxImg');
     const modalImgWrapper = document.getElementById('lightboxImgWrapper');
@@ -35,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('lightboxPrev');
     const nextBtn = document.getElementById('lightboxNext');
 
-    // Toolbar e Filtros
+    // Contadores e Toolbar
+    const totalProjectsCount = document.getElementById('totalProjectsCount');
+    const allCountBadge = document.getElementById('allCountBadge');
     const filterAllBtn = document.getElementById('filterAllBtn');
     const filterFavBtn = document.getElementById('filterFavBtn');
     const favCountBadge = document.getElementById('favCountBadge');
@@ -52,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     const toastEl = document.getElementById('toastNotification');
 
+    let catalogItems = [];
+    const loadedSrcSet = new Set();
     let currentIndex = 0;
-    const totalImages = catalogItems.length;
     let activeFilter = 'all';
     let searchQuery = '';
     let toastTimer = null;
@@ -103,6 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const catalogLink = `${baseUrl}catalogo.html?foto=${index + 1}`;
         const msg = `Olá! Gostaria de solicitar um orçamento deste serviço do catálogo (Projeto #${photoNum}):\n${imageUrl}\nVer no catálogo: ${catalogLink}`;
         return `https://wa.me/556992595342?text=${encodeURIComponent(msg)}`;
+    }
+
+    function updateTotalCounters() {
+        const total = catalogItems.length;
+        if (totalProjectsCount) totalProjectsCount.textContent = total;
+        if (allCountBadge) allCountBadge.textContent = total;
+        if (modal.classList.contains('active') && modalCounter && total > 0) {
+            const photoNum = String(currentIndex + 1).padStart(2, '0');
+            modalCounter.textContent = `Projeto #${photoNum} de ${total}`;
+        }
     }
 
     function updateFavoritesUI() {
@@ -186,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (emptyCatalogMsg) {
+        if (emptyCatalogMsg && catalogItems.length > 0) {
             emptyCatalogMsg.style.display = visibleCount === 0 ? 'block' : 'none';
         }
     }
@@ -216,6 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateLightbox(index) {
+        const totalImages = catalogItems.length;
+        if (totalImages === 0) return;
         currentIndex = (index + totalImages) % totalImages;
         const targetImg = catalogItems[currentIndex];
         const photoNum = String(currentIndex + 1).padStart(2, '0');
@@ -258,25 +274,32 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    // Estrutura cada card separando a imagem do rodapé de ação (fica perfeito no celular e PC)
-    catalogItems.forEach((img, index) => {
-        const card = img.parentElement;
+    // Cria automaticamente o card da foto dentro de #catalogGrid
+    function createCatalogCard(relativeSrc) {
+        const key = relativeSrc.toLowerCase();
+        if (loadedSrcSet.has(key)) return false;
+        loadedSrcSet.add(key);
+
+        const index = catalogItems.length;
         const photoNum = String(index + 1).padStart(2, '0');
+
+        const card = document.createElement('div');
+        card.className = 'catalog-item';
         card.style.animationDelay = `${Math.min(index * 20, 350)}ms`;
 
-        // Container dedicado da foto
         const imgBox = document.createElement('div');
         imgBox.className = 'catalog-img-box';
-        card.insertBefore(imgBox, img);
-        imgBox.appendChild(img);
 
-        // Número identificador da foto
+        const img = document.createElement('img');
+        img.src = relativeSrc;
+        img.alt = `Serviço JS Serralheria ${index + 1}`;
+        img.loading = 'lazy';
+        catalogItems.push(img);
+
         const badge = document.createElement('span');
         badge.className = 'catalog-item-number';
         badge.textContent = `#${photoNum}`;
-        imgBox.appendChild(badge);
 
-        // Botão Favoritar (Coração)
         const favBtn = document.createElement('button');
         favBtn.type = 'button';
         favBtn.className = 'catalog-fav-btn';
@@ -286,15 +309,17 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             toggleFavorite(index);
         });
-        imgBox.appendChild(favBtn);
 
-        // Ícone central de Zoom
         const zoomHint = document.createElement('div');
         zoomHint.className = 'catalog-zoom-hint';
         zoomHint.innerHTML = '<i class="fas fa-expand-alt"></i>';
-        imgBox.appendChild(zoomHint);
 
-        // Rodapé do Card com botão de WhatsApp (não tampa a foto no celular!)
+        imgBox.appendChild(img);
+        imgBox.appendChild(badge);
+        imgBox.appendChild(favBtn);
+        imgBox.appendChild(zoomHint);
+        imgBox.addEventListener('click', () => openLightbox(index));
+
         const footer = document.createElement('div');
         footer.className = 'catalog-card-footer';
 
@@ -312,16 +337,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         footer.appendChild(waQuickBtn);
+        card.appendChild(imgBox);
         card.appendChild(footer);
+        catalogGrid.appendChild(card);
 
-        imgBox.addEventListener('click', () => openLightbox(index));
-
-        // Miniatura no Lightbox
         if (thumbsContainer) {
             const thumb = document.createElement('div');
             thumb.className = 'lightbox-thumb-item';
             const thumbImg = document.createElement('img');
-            thumbImg.src = img.getAttribute('src');
+            thumbImg.src = relativeSrc;
             thumbImg.alt = `Miniatura ${photoNum}`;
             thumbImg.loading = 'lazy';
             thumb.appendChild(thumbImg);
@@ -331,7 +355,74 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             thumbsContainer.appendChild(thumb);
         }
-    });
+
+        return true;
+    }
+
+    // Verifica se um arquivo existe tentando carregá-lo como imagem
+    function checkImageExists(src) {
+        return new Promise((resolve) => {
+            const probe = new Image();
+            probe.onload = () => resolve(src);
+            probe.onerror = () => resolve(null);
+            probe.src = src;
+        });
+    }
+
+    // Verifica uma numeração específica (ex: foto-01.jpeg, foto-1.jpeg, .jpg, .png)
+    async function findPhotoByNumber(num) {
+        const padded = String(num).padStart(2, '0');
+        const primary = `${FOLDER_PATH}foto-${padded}.jpeg`;
+        const existsPrimary = await checkImageExists(primary);
+        if (existsPrimary) return existsPrimary;
+
+        const alternatives = [
+            `${FOLDER_PATH}foto-${padded}.jpg`,
+            `${FOLDER_PATH}foto-${padded}.png`,
+            `${FOLDER_PATH}foto-${num}.jpeg`,
+            `${FOLDER_PATH}foto-${num}.jpg`
+        ];
+        for (const alt of alternatives) {
+            if (alt === primary) continue;
+            const found = await checkImageExists(alt);
+            if (found) return found;
+        }
+        return null;
+    }
+
+    // Função principal que busca automaticamente todas as "foto-XX" na pasta images/Catalago/
+    async function loadAllNumberedPhotos() {
+        const BATCH_SIZE = 20;
+        let currentStart = 1;
+        let consecutiveMisses = 0;
+        const MAX_MISSES = 2;
+
+        while (consecutiveMisses < MAX_MISSES && currentStart <= 500) {
+            const nums = [];
+            for (let i = 0; i < BATCH_SIZE; i++) {
+                nums.push(currentStart + i);
+            }
+
+            // Verifica o lote em paralelo para carregar muito rápido
+            const results = await Promise.all(nums.map((n) => findPhotoByNumber(n)));
+
+            for (const foundSrc of results) {
+                if (foundSrc) {
+                    createCatalogCard(foundSrc);
+                    consecutiveMisses = 0;
+                } else {
+                    consecutiveMisses++;
+                    if (consecutiveMisses >= MAX_MISSES) break;
+                }
+            }
+
+            updateTotalCounters();
+            updateFavoritesUI();
+            currentStart += BATCH_SIZE;
+        }
+
+        checkUrlPhotoParam();
+    }
 
     // Eventos de Filtro, Busca e Tamanho da Grade
     if (filterAllBtn && filterFavBtn) {
@@ -499,11 +590,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    updateFavoritesUI();
-
-    const params = new URLSearchParams(window.location.search);
-    const fotoParam = parseInt(params.get('foto'), 10);
-    if (!isNaN(fotoParam) && fotoParam >= 1 && fotoParam <= totalImages) {
-        openLightbox(fotoParam - 1);
+    function checkUrlPhotoParam() {
+        const params = new URLSearchParams(window.location.search);
+        const fotoParam = parseInt(params.get('foto'), 10);
+        if (!isNaN(fotoParam) && fotoParam >= 1 && fotoParam <= catalogItems.length && !modal.classList.contains('active')) {
+            openLightbox(fotoParam - 1);
+        }
     }
+
+    // Inicia o carregamento automático de todas as fotos numeradas (foto-01, foto-02...)
+    loadAllNumberedPhotos();
 });

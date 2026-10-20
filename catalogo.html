@@ -30,7 +30,7 @@
                     <i class="fas fa-arrow-left"></i> Voltar ao Início
                 </a>
                 <div class="hero-badges">
-                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 64 Projetos Reais</span>
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> <span id="totalProjectsCount">0</span> Projetos Reais</span>
                     <span class="stat-pill"><i class="fas fa-medal"></i> Qualidade Garantida</span>
                 </div>
                 <a href="https://wa.me/556992595342?text=Ol%C3%A1%2C%20vi%20o%20cat%C3%A1logo%20da%20JS%20Serralheria%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" class="whatsapp-top-btn">
@@ -48,7 +48,7 @@
             <div class="catalog-toolbar">
                 <div class="toolbar-filter-group">
                     <button class="filter-chip active" data-filter="all" id="filterAllBtn">
-                        <i class="fas fa-th-large"></i> Todos <span class="chip-count">64</span>
+                        <i class="fas fa-th-large"></i> Todos <span class="chip-count" id="allCountBadge">0</span>
                     </button>
                     <button class="filter-chip" data-filter="favorites" id="filterFavBtn">
                         <i class="fas fa-heart"></i> Meus Favoritos <span class="chip-count" id="favCountBadge">0</span>
@@ -84,74 +84,9 @@
             <button type="button" class="reset-filter-btn" id="resetFilterBtn">Mostrar Todas as Fotos</button>
         </div>
 
-        <!-- Galeria de Fotos -->
+        <!-- Galeria de Fotos (Carregada Automaticamente via JavaScript) -->
         <section class="catalog-gallery-section">
-            <div class="catalog-grid" id="catalogGrid">
-                <div class="catalog-item"><img src="images/Catalago/foto-01.jpeg" alt="Serviço JS Serralheria 1" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-02.jpeg" alt="Serviço JS Serralheria 2" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-03.jpeg" alt="Serviço JS Serralheria 3" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-04.jpeg" alt="Serviço JS Serralheria 4" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-05.jpeg" alt="Serviço JS Serralheria 5" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-06.jpeg" alt="Serviço JS Serralheria 6" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-07.jpeg" alt="Serviço JS Serralheria 7" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-08.jpeg" alt="Serviço JS Serralheria 8" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-09.jpeg" alt="Serviço JS Serralheria 9" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-10.jpeg" alt="Serviço JS Serralheria 10" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-11.jpeg" alt="Serviço JS Serralheria 11" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-12.jpeg" alt="Serviço JS Serralheria 12" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-13.jpeg" alt="Serviço JS Serralheria 13" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-14.jpeg" alt="Serviço JS Serralheria 14" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-15.jpeg" alt="Serviço JS Serralheria 15" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-16.jpeg" alt="Serviço JS Serralheria 16" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-17.jpeg" alt="Serviço JS Serralheria 17" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-18.jpeg" alt="Serviço JS Serralheria 18" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-19.jpeg" alt="Serviço JS Serralheria 19" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-20.jpeg" alt="Serviço JS Serralheria 20" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-21.jpeg" alt="Serviço JS Serralheria 21" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-22.jpeg" alt="Serviço JS Serralheria 22" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-23.jpeg" alt="Serviço JS Serralheria 23" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-24.jpeg" alt="Serviço JS Serralheria 24" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-25.jpeg" alt="Serviço JS Serralheria 25" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-26.jpeg" alt="Serviço JS Serralheria 26" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-27.jpeg" alt="Serviço JS Serralheria 27" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-28.jpeg" alt="Serviço JS Serralheria 28" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-29.jpeg" alt="Serviço JS Serralheria 29" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-30.jpeg" alt="Serviço JS Serralheria 30" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-31.jpeg" alt="Serviço JS Serralheria 31" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-32.jpeg" alt="Serviço JS Serralheria 32" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-33.jpeg" alt="Serviço JS Serralheria 33" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-34.jpeg" alt="Serviço JS Serralheria 34" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-35.jpeg" alt="Serviço JS Serralheria 35" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-36.jpeg" alt="Serviço JS Serralheria 36" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-37.jpeg" alt="Serviço JS Serralheria 37" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-38.jpeg" alt="Serviço JS Serralheria 38" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-39.jpeg" alt="Serviço JS Serralheria 39" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-40.jpeg" alt="Serviço JS Serralheria 40" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-41.jpeg" alt="Serviço JS Serralheria 41" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-42.jpeg" alt="Serviço JS Serralheria 42" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-43.jpeg" alt="Serviço JS Serralheria 43" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-44.jpeg" alt="Serviço JS Serralheria 44" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-45.jpeg" alt="Serviço JS Serralheria 45" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-46.jpeg" alt="Serviço JS Serralheria 46" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-47.jpeg" alt="Serviço JS Serralheria 47" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-48.jpeg" alt="Serviço JS Serralheria 48" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-49.jpeg" alt="Serviço JS Serralheria 49" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-50.jpeg" alt="Serviço JS Serralheria 50" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-51.jpeg" alt="Serviço JS Serralheria 51" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-52.jpeg" alt="Serviço JS Serralheria 52" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-53.jpeg" alt="Serviço JS Serralheria 53" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-54.jpeg" alt="Serviço JS Serralheria 54" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-55.jpeg" alt="Serviço JS Serralheria 55" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-56.jpeg" alt="Serviço JS Serralheria 56" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-57.jpeg" alt="Serviço JS Serralheria 57" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-58.jpeg" alt="Serviço JS Serralheria 58" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-59.jpeg" alt="Serviço JS Serralheria 59" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-60.jpeg" alt="Serviço JS Serralheria 60" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-61.jpeg" alt="Serviço JS Serralheria 61" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-62.jpeg" alt="Serviço JS Serralheria 62" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-63.jpeg" alt="Serviço JS Serralheria 63" loading="lazy"></div>
-                <div class="catalog-item"><img src="images/Catalago/foto-64.jpeg" alt="Serviço JS Serralheria 64" loading="lazy"></div>
-            </div>
+            <div class="catalog-grid" id="catalogGrid"></div>
         </section>
 
         <footer class="footer">
@@ -186,7 +121,7 @@
     <!-- Modal / Lightbox Interativo com Zoom e Miniaturas -->
     <div id="lightboxModal" class="lightbox-modal" aria-hidden="true">
         <div class="lightbox-top-bar">
-            <span id="lightboxCounter" class="lightbox-counter">Projeto #01 de 64</span>
+            <span id="lightboxCounter" class="lightbox-counter">Projeto #01</span>
             <div class="lightbox-top-controls">
                 <button type="button" class="lightbox-icon-btn" id="lightboxZoomBtn" title="Dar Zoom na foto">
                     <i class="fas fa-search-plus"></i>

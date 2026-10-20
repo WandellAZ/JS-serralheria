@@ -31,6 +31,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Generate catalog manifest automatically
+        run: |
+          node -e '
+            const fs = require("fs");
+            const dir = "images/Catalago";
+            if (fs.existsSync(dir)) {
+              const files = fs.readdirSync(dir)
+                .filter(f => /\.(jpe?g|png|webp|avif)$/i.test(f))
+                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+              fs.writeFileSync(dir + "/manifest.json", JSON.stringify(files, null, 2));
+              console.log("Manifest generated with", files.length, "images.");
+            }
+          '
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
